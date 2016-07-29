@@ -1,5 +1,14 @@
 <h1>This is the index page!!!</h1>
-<% @posts.each do |post| %>
-  <p><%= link_to post.title, post %></p>
-<% end %>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <p><%= link_to post.title, post %></p>
+      <% if current_user == post.user && current_user != nil %>
+        <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Delete", post, method: :delete, data: {confirm: "are you sure?"} %> </br>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<hr>
 <%= link_to 'Submit Post', new_post_path %>
