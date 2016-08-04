@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.thumbnail{
+  img{
+    width: 100%;
+  }
+}
+
+.caption {
+  height: 130px;
+  p {
+    word-break: break-all;
+  }
+}
+
+.ratings{
+  color: #d17581;
+}
