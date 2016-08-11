@@ -41,6 +41,18 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def upvote
+    set_post
+    @post.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    set_post
+    @post.disliked_by current_user
+    redirect_to :back
+  end
+
   private
 
   def set_post

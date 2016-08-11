@@ -9,7 +9,15 @@
             <h4><%= link_to post.title, post %></h4>
             <p><%= post.body %></p>
           </div>
-          <hr>
+          <div class="btn-group btn-group-justified">
+            <%= link_to like_post_path(post), method: :put, class: "btn btn-primary btn-sm" do %>
+              <span>Like </span><span class="badge"><%= post.get_likes.size %></span>
+            <% end %>
+            <%= link_to dislike_post_path(post), method: :put, class: "btn btn-primary btn-sm" do %>
+              <span>Dislike </span><span class="badge"><%= post.get_dislikes.size %></span>
+            <% end %>
+          </div>
+          <!--
           <div class="ratings">
             <p>
               <span class="glyphicon glyphicon-star"></span>
@@ -19,6 +27,7 @@
               <span class="glyphicon glyphicon-star"></span>
             </p>
           </div>
+          -->
         </div>
       </div>  
     <% end %>
